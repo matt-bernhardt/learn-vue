@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo-302fedc6-298f-4221-9cef-79550494eccf.jpg">
+    <HelloWorld msg="About this search app"/>
+    <SearchTarget type="Books"/>
+    <SearchTarget type="Articles"/>
+    <SearchTarget type="Archives and manuscripts" />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import SearchTarget from './components/SearchTarget.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    SearchTarget
   }
 }
 </script>
