@@ -1,13 +1,15 @@
 <template>
 	<div class="search-target">
 		<h2>{{ type}}</h2>
+		<p>{{ about }}</p>
 	</div>
 </template>
 
 <script>
 export default {
   props: {
-    type: String
+    type: String,
+    about: String
   }
 }
 </script>
