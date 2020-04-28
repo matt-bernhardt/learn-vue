@@ -2,6 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo-302fedc6-298f-4221-9cef-79550494eccf.jpg">
     <HelloWorld msg="About this search app"/>
+    <SearchForm />
     <SearchTarget
       type="Books & media"
       about="Books, ebooks, audio books, music, and videos at MIT."/>
@@ -16,12 +17,14 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import SearchForm from './components/SearchForm.vue'
 import SearchTarget from './components/SearchTarget.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    SearchForm,
     SearchTarget
   }
 }
