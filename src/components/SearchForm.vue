@@ -1,7 +1,7 @@
 <template>
 	<div class="search-form">
 		<input placeholder="Start your search" v-model="query">
-		<p>You are searching for: {{ query }}</p>
+		<p v-if="query">You are searching for: {{ query }}</p>
 	</div>
 </template>
 
