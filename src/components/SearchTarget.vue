@@ -3,6 +3,13 @@
 		<h2>{{ type}}</h2>
 		<p>{{ about }}</p>
 		<p><router-link to="/record">Record</router-link></p>
+        <ul v-for="result in results" v-bind:key="result.id">
+            <li>
+                {{ result.title }}
+                <span>{{ result }}</span>
+                }
+            </li>
+        </ul>
 	</div>
 </template>
 
@@ -10,7 +17,22 @@
 export default {
   props: {
     type: String,
-    about: String
+    about: String,
+    results: Array
+  },
+  created() {
+    var placeholder = {
+        'id':'TBD',
+        'title':'Loading...'
+    }
+    this.results = Array()
+
+    this.results.push(placeholder)
+  },
+  mounted() {
+    this.axios
+      .get('https://timdex.mit.edu/api/v1/search?q=whatever')
+      .then(response => ( this.results = response.data.results ))
   }
 }
 </script>
