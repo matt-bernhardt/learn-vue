@@ -1,8 +1,7 @@
 <template>
-	<div class="search-target">
-		<h2>{{ type}}</h2>
-		<p>{{ about }}</p>
-		<p><router-link to="/record">Record</router-link></p>
+    <div class="search-target">
+        <h2>{{ type}}</h2>
+        <p>{{ about }}</p>
         <ul>
             <li
                 is="SearchItem"
@@ -11,7 +10,7 @@
                 v-bind:index="index"
                 v-bind:key="result.id"></li>
         </ul>
-	</div>
+    </div>
 </template>
 
 <script>
@@ -24,7 +23,7 @@ export default {
   props: {
     type: String,
     about: String,
-    results: Array
+    results: Array,
   },
   created() {
     var placeholder = {
@@ -45,10 +44,10 @@ export default {
 
 <style scoped>
 div.search-target {
-	background: #eaeaea;
-	border-top: 0.25rem solid black;
-	border-bottom: 1px solid black;
-	margin: 1rem;
-	margin-bottom: 2rem;
+    background: #eaeaea;
+    border-top: 0.25rem solid black;
+    border-bottom: 1px solid black;
+    margin: 1rem;
+    margin-bottom: 2rem;
 }
 </style>
