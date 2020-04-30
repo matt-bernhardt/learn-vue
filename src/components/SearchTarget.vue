@@ -17,6 +17,7 @@
 import SearchItem from '@/components/SearchItem.vue'
 
 export default {
+  name: 'SearchTarget',
   components: {
     SearchItem,
   },
@@ -24,6 +25,14 @@ export default {
     type: String,
     about: String,
     results: Array,
+  },
+  methods: {
+    conductSearch: function (term) {
+      console.log('Searching this target for: ' + term);
+      this.axios
+        .get('https://timdex.mit.edu/api/v1/search?q=' + term)
+        .then(response => ( this.results = response.data.results ));
+    }
   },
   created() {
     var placeholder = {
@@ -35,9 +44,7 @@ export default {
     this.results.push(placeholder)
   },
   mounted() {
-    this.axios
-      .get('https://timdex.mit.edu/api/v1/search?q=whatever')
-      .then(response => ( this.results = response.data.results ))
+    this.conductSearch('kerbal');
   }
 }
 </script>

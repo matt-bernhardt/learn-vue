@@ -25,6 +25,14 @@ export default {
   components: {
     SearchForm,
     SearchTarget,
+  },
+  methods: {
+    doSearch: function(term) {
+      console.log( 'If it worked, this would search all targets for: ' + term );
+    }
+  },
+  mounted() {
+    this.doSearch('beer');
   }
 }
 </script>
