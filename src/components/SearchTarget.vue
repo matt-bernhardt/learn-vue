@@ -3,18 +3,24 @@
 		<h2>{{ type}}</h2>
 		<p>{{ about }}</p>
 		<p><router-link to="/record">Record</router-link></p>
-        <ul v-for="result in results" v-bind:key="result.id">
-            <li>
-                {{ result.title }}
-                <span>{{ result }}</span>
-                }
-            </li>
+        <ul>
+            <li
+                is="SearchItem"
+                v-for="(result, index) in results"
+                v-bind:result="result"
+                v-bind:index="index"
+                v-bind:key="result.id"></li>
         </ul>
 	</div>
 </template>
 
 <script>
+import SearchItem from '@/components/SearchItem.vue'
+
 export default {
+  components: {
+    SearchItem,
+  },
   props: {
     type: String,
     about: String,
