@@ -2,6 +2,7 @@
 	<div class="search-target">
 		<h2>{{ type}}</h2>
 		<p>{{ about }}</p>
+		<p><router-link to="/record">Record</router-link></p>
 	</div>
 </template>
 
