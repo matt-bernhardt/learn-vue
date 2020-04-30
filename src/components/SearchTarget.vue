@@ -1,24 +1,29 @@
 <template>
-	<div class="search-target">
-		<h2>{{ type}}</h2>
-		<p>{{ about }}</p>
-		<p><router-link to="/record">Record</router-link></p>
-        <ul v-for="result in results" v-bind:key="result.id">
-            <li>
-                {{ result.title }}
-                <span>{{ result }}</span>
-                }
-            </li>
+    <div class="search-target">
+        <h2>{{ type}}</h2>
+        <p>{{ about }}</p>
+        <ul>
+            <li
+                is="SearchItem"
+                v-for="(result, index) in results"
+                v-bind:result="result"
+                v-bind:index="index"
+                v-bind:key="result.id"></li>
         </ul>
-	</div>
+    </div>
 </template>
 
 <script>
+import SearchItem from '@/components/SearchItem.vue'
+
 export default {
+  components: {
+    SearchItem,
+  },
   props: {
     type: String,
     about: String,
-    results: Array
+    results: Array,
   },
   created() {
     var placeholder = {
@@ -39,10 +44,10 @@ export default {
 
 <style scoped>
 div.search-target {
-	background: #eaeaea;
-	border-top: 0.25rem solid black;
-	border-bottom: 1px solid black;
-	margin: 1rem;
-	margin-bottom: 2rem;
+    background: #eaeaea;
+    border-top: 0.25rem solid black;
+    border-bottom: 1px solid black;
+    margin: 1rem;
+    margin-bottom: 2rem;
 }
 </style>
