@@ -1,7 +1,8 @@
 <template>
 	<div class="search-form">
 		<input placeholder="Start your search" v-model="query">
-		<p v-if="query">You are searching for: {{ query }}</p>
+		<button v-on:click="newSearch">Search</button>
+		<p v-if="newSearchQuery">You are searching for: {{ newSearchQuery }}</p>
 	</div>
 </template>
 
@@ -11,6 +12,18 @@ export default {
 		return {
 			query: ""
 		};
+	},
+	methods: {
+		newSearch () {
+			this.$emit('clicked', this.newSearchQuery);
+		}
+	},
+	computed: {
+		newSearchQuery: function () {
+			// This may provide space for escaping or computation to be done
+			// on the provided query.
+			return this.query;
+		}
 	}
 }
 </script>

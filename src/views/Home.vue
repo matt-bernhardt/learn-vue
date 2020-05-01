@@ -2,16 +2,22 @@
   <div class="home">
     <img alt="MIT Libraries logo" src="../assets/logo-302fedc6-298f-4221-9cef-79550494eccf.jpg">
     <h1>Search Rebuilt</h1>
-    <SearchForm />
+    <SearchForm @clicked="doSearch" />
     <SearchTarget
+      v-if="query"
       type="Books & media"
-      about="Books, ebooks, audio books, music, and videos at MIT." />
+      about="Books, ebooks, audio books, music, and videos at MIT."
+      :query=query />
     <SearchTarget
+      v-if="query"
       type="Articles & journals"
-      about="Articles from a variety of periodicals, including scholarly journals and magazines at MIT." />
+      about="Articles from a variety of periodicals, including scholarly journals and magazines at MIT."
+      :query=query />
     <SearchTarget
+      v-if="query"
       type="Archives & manuscripts collections"
-      about="Unique and rare materials from MIT Distinctive Collections." />
+      about="Unique and rare materials from MIT Distinctive Collections."
+      :query=query />
   </div>
 </template>
 
@@ -22,17 +28,19 @@ import SearchTarget from '@/components/SearchTarget.vue'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      query: ''
+    }
+  },
   components: {
     SearchForm,
     SearchTarget,
   },
   methods: {
-    doSearch: function(term) {
-      console.log( 'If it worked, this would search all targets for: ' + term );
+    doSearch: function(query) {
+      this.query = query;
     }
-  },
-  mounted() {
-    this.doSearch('beer');
   }
 }
 </script>

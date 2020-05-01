@@ -22,16 +22,18 @@ export default {
     SearchItem,
   },
   props: {
-    type: String,
     about: String,
+    query: String,
     results: Array,
+    type: String,
   },
   methods: {
     conductSearch: function (term) {
-      console.log('Searching this target for: ' + term);
-      this.axios
-        .get('https://timdex.mit.edu/api/v1/search?q=' + term)
-        .then(response => ( this.results = response.data.results ));
+      if (term) {
+        this.axios
+          .get('https://timdex.mit.edu/api/v1/search?q=' + term)
+          .then(response => ( this.results = response.data.results ));
+      }
     }
   },
   created() {
@@ -44,7 +46,12 @@ export default {
     this.results.push(placeholder)
   },
   mounted() {
-    this.conductSearch('kerbal');
+    this.conductSearch(this.query);
+  },
+  watch: {
+    'query': function() {
+      this.conductSearch(this.query);
+    }
   }
 }
 </script>
