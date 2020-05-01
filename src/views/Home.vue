@@ -7,16 +7,19 @@
       v-if="query"
       type="Books & media"
       about="Books, ebooks, audio books, music, and videos at MIT."
+      target="timdex"
       :query=query />
     <SearchTarget
       v-if="query"
       type="Articles & journals"
       about="Articles from a variety of periodicals, including scholarly journals and magazines at MIT."
+      target="timdex"
       :query=query />
     <SearchTarget
       v-if="query"
       type="Archives & manuscripts collections"
       about="Unique and rare materials from MIT Distinctive Collections."
+      target="aspace"
       :query=query />
   </div>
 </template>
